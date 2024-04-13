@@ -1,3 +1,6 @@
+
+![sc-notes](https://github.com/FayeVinyl/sc-sticky-notes-ui/assets/19337086/4130eb61-b60d-4c3d-bd5a-471d48e9eed4)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
