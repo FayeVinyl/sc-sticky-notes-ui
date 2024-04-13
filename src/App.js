@@ -16,20 +16,19 @@ class App extends Component {
   };
 
   addNote = () => {
-    // create new note
     const newNote = {
       id: Date.now(),
       title: "",
       description: "",
       doesMatchSearch: true,
     };
-    // add new note to array in state
+
     const newNotes = [newNote, ...this.state.notes];
     this.setState({ notes: newNotes });
   };
 
   onType = (editMeId, updatedKey, updatedValue) => {
-    // editMeId: id of note that is edited
+
     // updatedKey: title or description field
     // updatedValue: value of the title or description
     const updatedNotes = this.state.notes.map((note) => {
@@ -49,31 +48,22 @@ class App extends Component {
   };
 
   onSearch = (text) => {
-    // set all text to same case
+
     const newSearchText = text.toLowerCase();
-    //map over all notes, see if search text matches note text
+
     const updatedNotes = this.state.notes.map((note) => {
-      //if no new search text:
+   
       if (!newSearchText) {
         note.doesMatchSearch = true;
         return note;
       } else {
-        //title and description to toLowerCase
+   
         const title = note.title.toLowerCase();
         const description = note.description.toLowerCase();
-        // does text include search
+
         const titleMatch = title.includes(newSearchText);
         const descriptionMatch = description.includes(newSearchText);
-        /*
-        if (titleMatch) {
-          note.doesMatchSearch = true;
-        } else if (descriptionMatch) {
-          note.doesMatchSearch = true;
-        } else {
-          note.doesMatchSearch = false;
-        }
-        */
-        // same as:
+
         const hasMatch = titleMatch || descriptionMatch;
         note.doesMatchSearch = hasMatch;
         return note;
@@ -86,7 +76,6 @@ class App extends Component {
   };
 
   removeNote = (noteId) => {
-    //filters out note if noteid matches
     const updatedNotes = this.state.notes.filter((note) => note.id !== noteId);
     this.setState({ notes: updatedNotes });
   };
